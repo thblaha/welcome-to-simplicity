@@ -4,13 +4,12 @@ body {
     font-family: 'Mukta', sans-serif;
     display: grid;
     width: 100vw;
-    height: 100vh;
+  
 }
 
 .wrapper {
   
     display: grid;
-    grid-gap: 10px;
     grid-template-rows: 50px 1fr;
     grid-template-columns: 100px 1fr;
     grid-template-areas:
@@ -19,52 +18,54 @@ body {
 }
 
 section {
-    background-color: goldenrod;
+    background-image: linear-gradient rgba(155,0,0,.45), rgba(155,0,0, .45);
+    background-image:url("bckg.jpg");
+    background-repeat: no-repeat;
+    opacity: .70;;
     grid-area: content;
     color: #fff;
-    /* padding: 20px; */
-       /* display: flex; */
-    /* justify-content: center; */
+    padding: 20px;
+    display: flex;
+    /* justify-content: left center; */
+}
+span {
+    color: rgb(248,242,133);
 }
 
-.route-background {
-    opacity: 50%;
+.far {
+    margin: 5px;
+    padding: 5px;
+    padding-bottom: 1em;
+    line-height: 1em;
+
 }
-header {
+.header{
     color: #fff;
-    /* text-align: right; */
-    font-size: 2em;
+    font-size: 10em;
+    padding: 25%;
 }
-
-/* .header {
-    grid-area:header;
-    background-color:rgb(102,102,101);
-} */
-
 nav {
-    background-color:rgb(102,102,101);
-    color:#fff;
+    background-color:rgb(38,38,38);;
+    color: rgb(102,102,101);
     width: 100px;
     height: 100%;
     text-align: left;
     padding: 2px;
 }
-
 .nav-item {
     padding-bottom: 10px;
+    margin: 10px;
 }
 
 .sidebar {
-    background-color:rgb(102,102,101);
+    background-color:rgb(38,38,38);
     grid-area: sidebar;
-    background-color:RGB (51,51,51);
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr
-}
+    grid-template-rows: 1fr 1fr 1fr;
+   }
 
-input {
-    /* border: 1px solid rgb(180, 176, 176);
-    border-style: solid; */
+#simplicity {
+    color:rgb(248,242,133);
 }
 
 button {
@@ -76,6 +77,3 @@ button {
     display: none;
 }
 
-.user-info {
-    padding-bottom: 1em;
-}
