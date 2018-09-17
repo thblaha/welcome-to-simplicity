@@ -28,7 +28,7 @@ section {
     display: flex;
     /* justify-content: left center; */
 }
-span {
+.selected {
     color: rgb(248,242,133);
 }
 
@@ -37,6 +37,7 @@ span {
     padding: 5px;
     padding-bottom: 1em;
     line-height: 1em;
+    font-size:3em;
 
 }
 .header{
@@ -64,13 +65,10 @@ nav {
     grid-template-rows: 1fr 1fr 1fr;
    }
 
-#simplicity {
-    color:rgb(248,242,133);
-}
-
 button {
     border: none;
     background-color:inherit;
+    color: white;
 }
 
 .hidden {

@@ -1,31 +1,31 @@
 const state = {
   employeeList: [{
-      name:'Name: Lily Tomlin',
+      name: 'Lily Tomlin',
 
-      officeNum:'Office Number: 8233',
-      
-      phoneNum: 'Phone Number: (407)-682-8888',
+      officeNum: '8233',
+
+      phoneNum: '(407)-682-8888',
     },
     {
-      name:'Name: Rhea Butcher',
+      name: 'Rhea Butcher',
 
-      officeNum:'Office Number: 219',
+      officeNum: '219',
 
-      phoneNum:'Phone Number: (404)-555-5555',
+      phoneNum: '(404)-555-5555',
     },
     {
-      name:'Name: Karen Walker',
+      name: 'Karen Walker',
 
-      officeNum:'Office Number: 923',
+      officeNum: '923',
 
-      phoneNum:'Phone Number: (321)555-5555',
+      phoneNum: '(321)555-5555',
     },
     {
-      name:'Name: Cristina Yang',
+      name: 'Cristina Yang',
 
-      officeNum:'Office Number: 324',
+      officeNum: '324',
 
-      phoneNum:'Phone Number: (912)555-5555',
+      phoneNum: '(912)555-5555',
     },
   ]
 };
@@ -51,15 +51,19 @@ const verify = function () {
     $('#verify-content').html(`<div class="user-info">Employee Found</div>`)
   } else {
     $('#verify-content').html(`<div class="user-info">Employee Not Found</div>`)
+
   }
 }
+
+
 const lookup = function () {
   const lookupUser = $('#display-lookup').val();
   const foundEmployee = state.employeeList.find(employee => employee.name === lookupUser);
   if (foundEmployee != null) {
-    $('#lookup-content').html(`<div class="user=info">${foundEmployee.name}<br/>${foundEmployee.officeNum}<br/>${foundEmployee.phoneNum}</div>`);
+    $('#lookup-content').html(`<div class="user=info">Name: ${foundEmployee.name}<br/>Office Number: ${foundEmployee.officeNum}<br/>Phone Number: ${foundEmployee.phoneNum}</div>`);
   } else {
     $('#lookup-content').html(`<div class="user-info">Employee Not Found</div>`)
+
   }
 }
 const contains = function () {
@@ -68,9 +72,10 @@ const contains = function () {
   $('#contains-content').empty();
   if (foundEmployees.length > 0) {
     foundEmployees.forEach(foundEmployee =>
-      $('#contains-content').append(`<div class="user=info">${foundEmployee.name}<br/>${foundEmployee.officeNum}<br/>${foundEmployee.phoneNum}</div>`));
+      $('#contains-content').append(`<div class="user=info">Name: ${foundEmployee.name}<br/>Office Number: ${foundEmployee.officeNum}<br/>Phone Number: ${foundEmployee.phoneNum}</div>`));
   } else {
     $('#contains-content').html(`<div class="user-info">Employee Not Found</div>`)
+
   }
 }
 
@@ -83,18 +88,20 @@ const update = function () {
     foundEmployee.name = updateUser;
     foundEmployee.officeNum = $('#update-number').val();
     foundEmployee.phoneNum = $('#update-phone').val();
-    $('#update-content').html(`<div class="user=info">${foundEmployee.name}<br/>${foundEmployee.officeNum}<br/>${foundEmployee.phoneNum}</div>`);
+    $('#update-content').html(`<div class="user=info">Name: ${foundEmployee.name}<br/>Office Number: ${foundEmployee.officeNum}<br/>Phone Number: ${foundEmployee.phoneNum}</div>`);
   } else {
     $('#update-content').html(`<div class="user-info">Employee Not Found</div>`)
+
   }
 }
 const add = function () {
   const addEmployee = {};
-  addEmployee.name = $('#display-name').val();
-  addEmployee.officeNum = $('#display-number').val();
-  addEmployee.phoneNum = $('#display-phone').val();
+  addEmployee.name = $('#add-name').val();
+  addEmployee.officeNum = $('#add-number').val();
+  addEmployee.phoneNum = $('#add-phone').val();
   state.employeeList.push(addEmployee);
-  $('#add-content').append(`<div class="user=info">${addEmployee.name}<br/>${addEmployee.officeNum}<br/>${addEmployee.phoneNum}</div>`);
+  $('#add-content').append(`<div class="user=info">Name: ${addEmployee.name}<br/>Office Number: ${addEmployee.officeNum}<br/>Phone Number: ${addEmployee.phoneNum}</div>`);
+
 }
 
 const del = function () {
@@ -109,72 +116,49 @@ const del = function () {
 }
 $('#delete-content').html(`<div class="user-info">Employee Not Found</div>`)
 
-const renderVerifyRoute = function () {
+const renderSearchForm = function (routeName, onSubmit) {
   const content = $('#content');
   content.empty();
-  content.append('<input type="text" id="display-verify" />');
-  content.append('<button id="verify"><i class="fas fa-search"></i></button>');
-  content.append('<div id="verify-content"></div>');
-  $('#verify').on('click', verify);
+  content.append(`<div id="minimalist">The Minimalists Directory</div>`);
+  content.append(`<input type="text" id="display-${routeName}" />`);
+  content.append(`<button id="${routeName}"><i class="fas fa-search"></i></button>`);
+  content.append(`<div id="${routeName}-content"></div>`);
+  $(`#${routeName}`).on('click', onSubmit);
+
 }
 
-const renderLookupRoute = function () {
+const renderEditForm = function (routeName, onSubmit) {
   const content = $('#content');
   content.empty();
-  content.append('<input type="text" id="display-lookup" />');
-  content.append('<button id="lookup"><i class="fas fa-search"></i></button>');
-  content.append('<div id="lookup-content"></div>');
-  $('#lookup').on('click', lookup);
+  content.append(`<div id="minimalist">The Minimalists Directory</div>`);
+  content.append(`<div><label for="${routeName}-name"> Name:</label><input type="text" id="${routeName}-name" /></div>`);
+  content.append(`<div><label for="${routeName}-number">Office Number:</label><input type="text" id="${routeName}-number" /></div>`);
+  content.append(`<div><label for="${routeName}-phone">Phone Number:</label><input type="text" id="${routeName}-phone" /></div>`);
+  content.append(`<button id="${routeName}"><i class="fas fa-plus"></i></button>`);
+  content.append(`<div id="${routeName}-content"></div>`);
+  $(`#${routeName}`).on('click', onSubmit);
 }
 
-const renderContainsRoute = function () {
-  const content = $('#content');
-  content.empty();
-  content.append('<input type="text" id="display-contains" />');
-  content.append('<button id="contains"><i class="fas fa-search"></i></button>');
-  content.append('<div id="contains-content"></div>');
-  $('#contains').on('click', contains);
-}
-
-
-const renderUpdateRoute = function () {
-  const content = $('#content');
-  content.empty();
-  content.append('<input type="text" id="display-update" />');
-  content.append('<button id="update"><i class="fas fa-search"></i></button>');
-  content.append('<div id="update-content"></div>');
-  $('#update').on('click', update);
-}
-
-const renderAddRoute = function () {
-  const content = $('#content');
-  content.empty();
-  content.append('<input type="text" id="display-add" />');
-  content.append('<button id="add"><i class="fas-fa-search"></i></button>');
-  content.append('<div id="add-content"></div>');
-  $('#add').on('click', add);
-}
-
-const renderDeleteRoute = function () {
-  const content = $('#content');
-  content.empty();
-  content.append('<input type="text" id="display-delete" />');
-  content.append('<button id="delete"><i class="fas fa-search"></i></button>');
-  content.append('<div id="delete-content"></div>');
-  $('#delete').on('click', del);
-}
 const renderPrintRoute = function () {
   const content = $("#content");
   content.empty();
   state.employeeList.forEach(user => {
-    content.append(`<div class="user-info">${user.name}<br/>${user.officeNum}<br/>${user.phoneNum}</div>`);
+    content.append(`<div class="user-info">Name: ${user.name}<br/> Office Number: ${user.officeNum}<br/>Phone Number: ${user.phoneNum}</div>`);
   });
+}
+const renderSimplicityRoute = function () {
+  const content = $('#content');
+  content.empty();
+  content.append(`<div id="welcome">WELCOME TO <span class="selected">SIMPLICITY</span></div>`);
+  content.append(`<div id="minimalist">The Minimalists Directory</div>`);
 }
 
 $('#print-route').on('click', renderPrintRoute);
-$('#verify-route').on('click', renderVerifyRoute);
-$('#lookup-route').on('click', renderLookupRoute);
-$('#contains-route').on('click', renderContainsRoute);
-$('#update-route').on('click', renderUpdateRoute);
-$('#add-route').on('click', renderAddRoute);
-$('#delete-route').on('click', renderDeleteRoute);
+$('#verify-route').on('click', () => renderSearchForm('verify', verify));
+$('#lookup-route').on('click', () => renderSearchForm('lookup', lookup));
+$('#contains-route').on('click', () => renderSearchForm('contains', contains));
+$('#update-route').on('click', () => renderEditForm('update', update));
+$('#add-route').on('click', () => renderEditForm('add', add));
+$('#delete-route').on('click', () => renderSearchForm('delete', del));
+$('#simplicity-route').on('click', renderSimplicityRoute);
+renderSimplicityRoute();
