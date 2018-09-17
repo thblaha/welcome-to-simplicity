@@ -9,11 +9,9 @@ body {
 .wrapper {
 
     display: grid;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 1fr;
     grid-template-columns: 100px 1fr;
-    grid-template-areas:
-        "sidebar content"
-        "sidebar content";
+    grid-template-areas: "sidebar content";
 }
 
 #content {
@@ -53,7 +51,9 @@ section {
     font-size: 3em;
 
 }
-
+#home {
+    padding-bottom: 2em;
+}
 .header {
     color: #fff;
     font-size: 10em;
@@ -62,25 +62,22 @@ section {
 
 nav {
     background-color: rgb(38, 38, 38);
-    ;
     color: rgb(102, 102, 101);
-    width: 100px;
+    /* width: 100px; */
     height: 100%;
     text-align: left;
-    padding: 2px;
+    padding: 5px;
 }
 
 .nav-item {
-    padding-bottom: 10px;
-    margin: 10px;
+    padding-bottom: 20px;
+
 }
 
 .sidebar {
     background-color: rgb(38, 38, 38);
     grid-area: sidebar;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-}
+    display: grid;}
 
 button {
     border: none;
