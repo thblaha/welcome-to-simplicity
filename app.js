@@ -149,8 +149,7 @@ const renderPrintRoute = function () {
 const renderSimplicityRoute = function () {
   const content = $('#content');
   content.empty();
-  content.append(`<div id="welcome">WELCOME TO <span class="selected">SIMPLICITY</span></div>`);
-  content.append(`<div id="minimalist">The Minimalists Directory</div>`);
+  content.append(`<div class="center"><div id="welcome">WELCOME TO <span class="selected">SIMPLICITY</span></div><div id="minimalist">The Minimalists Directory</div></div>`);
 }
 
 $('#print-route').on('click', renderPrintRoute);
