@@ -19,7 +19,7 @@ body {
 }
 
 section {
-    background-image: linear-gradient rgba(155, 0, 0, .45), rgba(155, 0, 0, .45);
+    background-color: rgba(155, 0, 0, .45), rgba(155, 0, 0, .45);
     background-image: url("bckg.jpg");
     background-repeat: no-repeat;
     opacity: .70;

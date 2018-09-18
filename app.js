@@ -152,12 +152,34 @@ const renderSimplicityRoute = function () {
   content.append(`<div class="center"><div id="welcome">WELCOME TO <span class="selected">SIMPLICITY</span></div><div id="minimalist">The Minimalists Directory</div></div>`);
 }
 
-$('#print-route').on('click', renderPrintRoute);
-$('#verify-route').on('click', () => renderSearchForm('verify', verify));
-$('#lookup-route').on('click', () => renderSearchForm('lookup', lookup));
-$('#contains-route').on('click', () => renderSearchForm('contains', contains));
-$('#update-route').on('click', () => renderEditForm('update', update));
-$('#add-route').on('click', () => renderEditForm('add', add));
-$('#delete-route').on('click', () => renderSearchForm('delete', del));
-$('#simplicity-route').on('click', renderSimplicityRoute);
+function handleRouteChange(event) {
+  const route = event.target.id;
+  switch (route) {
+    case 'print-route':
+      renderPrintRoute();
+      break;
+    case 'verify-route':
+      renderSearchForm('verify', verify);
+      break;
+    case 'lookup-route':
+      renderSearchForm('lookup', lookup);
+      break;
+    case 'contains-route':
+      renderSearchForm('contains', contains);
+      break;
+    case 'update-route':
+      renderEditForm('update', update);
+      break;
+    case 'add-route':
+      renderEditForm('add', add);
+      break;
+    case 'delete-route':
+      renderSearchForm('delete', del);
+      break;
+    default:
+      renderSimplicityRoute();
+      break;
+  }
+}
+$('nav').on('click', handleRouteChange);
 renderSimplicityRoute();
