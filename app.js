@@ -118,6 +118,7 @@ $('#delete-content').html(`<div class="user-info">Employee Not Found</div>`)
 
 const renderSearchForm = function (routeName, onSubmit) {
   const content = $('#content');
+  content.addClass("content-background");
   content.empty();
   content.append(`<div class="content-header">The Minimalists Directory</div>`);
   content.append(`<input type="text" id="display-${routeName}" />`);
@@ -129,11 +130,12 @@ const renderSearchForm = function (routeName, onSubmit) {
 
 const renderEditForm = function (routeName, onSubmit) {
   const content = $('#content');
+  content.addClass("content-background");
   content.empty();
   content.append(`<div  class="content-header">The Minimalists Directory</div>`);
-  content.append(`<div><label for="${routeName}-name"> Name:</label><input type="text" id="${routeName}-name" /></div>`);
-  content.append(`<div><label for="${routeName}-number">Office Number:</label><input type="text" id="${routeName}-number" /></div>`);
-  content.append(`<div><label for="${routeName}-phone">Phone Number:</label><input type="text" id="${routeName}-phone" /></div>`);
+  content.append(`<div class="form-box"><label for="${routeName}-name"> Name:</label><input type="text" id="${routeName}-name" /></div>`);
+  content.append(`<div class="form-box"><label for="${routeName}-number">Office Number:</label><input type="text" id="${routeName}-number" /></div>`);
+  content.append(`<div class="form-box"><label for="${routeName}-phone">Phone Number:</label><input type="text" id="${routeName}-phone" /></div>`);
   content.append(`<button id="${routeName}"><i class="fas fa-plus"></i></button>`);
   content.append(`<div id="${routeName}-content"></div>`);
   $(`#${routeName}`).on('click', onSubmit);
@@ -141,6 +143,7 @@ const renderEditForm = function (routeName, onSubmit) {
 
 const renderPrintRoute = function () {
   const content = $("#content");
+  content.addClass("content-background");
   content.empty();
   state.employeeList.forEach(user => {
     content.append(`<div class="user-info">Name: ${user.name}<br/> Office Number: ${user.officeNum}<br/>Phone Number: ${user.phoneNum}</div>`);
@@ -148,6 +151,7 @@ const renderPrintRoute = function () {
 }
 const renderSimplicityRoute = function () {
   const content = $('#content');
+  content.removeClass("content-background");
   content.empty();
   content.append(`<div class="center"><div id="welcome">WELCOME TO <span class="selected">SIMPLICITY</span></div><div id="minimalist">The Minimalists Directory</div></div>`);
 }

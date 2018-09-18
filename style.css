@@ -3,11 +3,9 @@ body {
     font-family: 'Mukta', sans-serif;
     display: grid;
     width: 100vw;
-
 }
 
 .wrapper {
-
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 100px 1fr;
@@ -16,26 +14,25 @@ body {
 
 #content {
     height: 100%;
+    background-image: url("bckg.jpg");
+    background-repeat: no-repeat;
+    opacity: .70;
+    padding: 1em;
 }
 
 section {
-    /* background-color: rgba(155, 0, 0, .45), rgba(155, 0, 0, .45);
-    background-image: url("bckg.jpg");
-    background-repeat: no-repeat; */
-    opacity: .70;
     grid-area: content;
     color: #fff;
     padding: 20px;
+}
 
-    background: 
-    /* top, transparent red, faked with gradient */ 
-    linear-gradient(
-      rgba(100, 64, 64, 1), 
-      rgba(100, 64, 64, .93)
-    ),
-    /* bottom, image */
-    url(bckg.jpg);
-    
+#content.content-background {
+    background:
+        /* top, transparent red, faked with gradient */
+        linear-gradient(rgba(100, 64, 64, 1),
+        rgba(100, 64, 64, .93)),
+        /* bottom, image */
+        url(bckg.jpg);
 }
 
 .selected {
@@ -58,6 +55,7 @@ section {
 .far {
     margin: 10px;
     font-size: 3em;
+    color: #fff;
 
 }
 
@@ -111,5 +109,11 @@ input {
 }
 
 .content-header {
+    padding-bottom: 1em;
+}
+
+.form-box {
+    display: grid;
+    grid-template-columns: 150px 200px;
     padding-bottom: 1em;
 }
