@@ -119,7 +119,7 @@ $('#delete-content').html(`<div class="user-info">Employee Not Found</div>`)
 const renderSearchForm = function (routeName, onSubmit) {
   const content = $('#content');
   content.empty();
-  content.append(`<div id="minimalist">The Minimalists Directory</div>`);
+  content.append(`<div class="content-header">The Minimalists Directory</div>`);
   content.append(`<input type="text" id="display-${routeName}" />`);
   content.append(`<button id="${routeName}"><i class="fas fa-search"></i></button>`);
   content.append(`<div id="${routeName}-content"></div>`);
@@ -130,7 +130,7 @@ const renderSearchForm = function (routeName, onSubmit) {
 const renderEditForm = function (routeName, onSubmit) {
   const content = $('#content');
   content.empty();
-  content.append(`<div id="minimalist">The Minimalists Directory</div>`);
+  content.append(`<div  class="content-header">The Minimalists Directory</div>`);
   content.append(`<div><label for="${routeName}-name"> Name:</label><input type="text" id="${routeName}-name" /></div>`);
   content.append(`<div><label for="${routeName}-number">Office Number:</label><input type="text" id="${routeName}-number" /></div>`);
   content.append(`<div><label for="${routeName}-phone">Phone Number:</label><input type="text" id="${routeName}-phone" /></div>`);
